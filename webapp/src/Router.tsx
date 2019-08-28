@@ -7,10 +7,12 @@ import { ThemeProvider } from '@material-ui/styles';
 import Logo from './components/Logo';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Home from './components/Home';
 import ResetPassword from './components/ResetPassword';
 import VerifyEmail from './components/VerifyEmail';
 import TwoFactor from './components/TwoFactor';
+
+import SteedosHome from './components/SteedosHome'
+import SteedosLogout from './components/SteedosLogout'
 
 import theme from './theme';
 
@@ -54,13 +56,14 @@ const Router = () => {
           <Grid container className={classes.rootGrid}>
             <Grid item xs={12}>
               <Logo></Logo>
-              <Paper className={classes.container}>
+              <Paper>
                 <CssBaseline />
-                <Route exact path="/" component={Home} />
+                <Route exact path="/" component={SteedosHome} />
                 <Route path="/two-factor" component={TwoFactor} />
 
                 <Route path="/signup" component={Signup} />
                 <Route path="/login" component={Login} />
+                <Route path="/logout" component={SteedosLogout} />
                 <Route exact path="/reset-password" component={ResetPassword} />
                 <Route path="/reset-password/:token" component={ResetPassword} />
                 <Route path="/verify-email/:token" component={VerifyEmail} />

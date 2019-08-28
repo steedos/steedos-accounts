@@ -10,6 +10,7 @@ const useStyles = makeStyles({
   formContainer: {
     display: 'flex',
     flexDirection: 'column',
+    margin: '16px'
   },
 });
 
