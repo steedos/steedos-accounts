@@ -21,6 +21,7 @@ const toMongoID = (objectId: string | ObjectID) => {
 const defaultOptions = {
   collectionName: 'users',
   sessionCollectionName: 'sessions',
+  spaceUserCollectionName: 'space_users',
   timestamps: {
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -40,6 +41,8 @@ export class Mongo implements DatabaseInterface {
   private collection: Collection;
   // Session collection
   private sessionCollection: Collection;
+  // SpaceUser collection
+  private spaceUserCollection: Collection;
 
   constructor(db: any, options?: AccountsMongoOptions) {
     this.options = merge({ ...defaultOptions }, options);
@@ -49,6 +52,7 @@ export class Mongo implements DatabaseInterface {
     this.db = db;
     this.collection = this.db.collection(this.options.collectionName);
     this.sessionCollection = this.db.collection(this.options.sessionCollectionName);
+    this.spaceUserCollection = this.db.collection(this.options.spaceUserCollectionName);
   }
 
   public async setupIndexes(): Promise<void> {

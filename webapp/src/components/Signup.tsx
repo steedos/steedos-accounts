@@ -36,6 +36,7 @@ const Signup = ({ history }: RouteComponentProps<{}>) => {
     setError(null);
     try {
       await accountsPassword.createUser({
+        name: name,
         username: name,
         email: email,
         password: password,

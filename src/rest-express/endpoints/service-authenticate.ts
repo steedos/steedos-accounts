@@ -36,9 +36,6 @@ export const serviceAuthenticate = (accountsServer: AccountsServer) => async (
     //获取user session
     let session:any = await accountsServer.findSessionByAccessToken(loggedInUser.tokens.accessToken)
 
-    //确认用户密码是否过期
-    let user = await db.collection.findOne({_id: session.userId}, { password_expired: 1 })
-
     //创建Meteor token
     let authToken = null;
     let stampedAuthToken = {
