@@ -6,7 +6,8 @@
     "start": "cross-env SKIP_PREFLIGHT_CHECK=true PUBLIC_URL=/accounts/a/ react-scripts start",
     "build": "cross-env SKIP_PREFLIGHT_CHECK=true PUBLIC_URL=/accounts/a/ react-scripts build",
     "test": "yarn build",
-    "testonly": "SKIP_PREFLIGHT_CHECK=true react-scripts test"
+    "testonly": "SKIP_PREFLIGHT_CHECK=true react-scripts test",
+    "wbuild": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,18 +46,30 @@
     "@babel/core": "7.3.4",
     "@babel/plugin-proposal-class-properties": "7.3.4",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "@babel/preset-env": "7.3.4",
-    "@babel/preset-react": "7.0.0",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.6.3",
     "@babel/runtime": "7.3.4",
-    "@types/node": "12.6.8",
+    "@types/node": "^12.7.12",
     "@types/qrcode.react": "0.8.2",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
     "@types/react-router": "5.0.3",
     "@types/react-router-dom": "4.3.4",
+    "@types/webpack": "^4.39.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "cross-env": "^5.2.0",
     "react-scripts": "3.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "typescript": "3.5.3"
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.0",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "3.5.3",
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
   }
 }

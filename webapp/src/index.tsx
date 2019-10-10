@@ -12,4 +12,4 @@ ReactDOM.render(
             <Router />
         </IntlProvider>
     </Provider>,
-    document.getElementById('root') as HTMLElement);
+    document.getElementById('root'));
