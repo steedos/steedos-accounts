@@ -197,7 +197,7 @@ export const applyCode = (accountsServer: AccountsServer) => async (
 
         if(action.startsWith("mobile")){
 
-            if(tenantConfig && !tenantConfig.enable_mobile_code_login){
+            if(tenantConfig && !tenantConfig.enable_bind_mobile){
                 if(['mobileLogin', 'mobileSignupAccount'].indexOf(action) > -1){
                     throw new Error("请输入有效的邮箱");
                 }
