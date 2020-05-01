@@ -25,6 +25,8 @@ import { errors } from './errors';
 import { getSteedosConfig } from '@steedos/objectql';
 import { verifyCode, getVerifyRecord } from '../rest-express/endpoints/steedos/verify_code';
 
+import { canEmailPasswordLogin } from '../core/index'
+
 export interface AccountsPasswordOptions {
   /**
    * Two factor options passed down to the @accounts/two-factor service.
@@ -598,8 +600,10 @@ export default class AccountsPassword implements AuthenticationService {
     } else if (email) {
       // this._validateLoginWithField('email', user);
       foundUser = await this.db.findUserByEmail(email);
-      if(foundUser && !(foundUser as any).email_verified){
-        throw new Error("你的邮箱未验证，请使用验证码登录");
+      if(foundUser){
+        if(!canEmailPasswordLogin(foundUser)){
+          throw new Error("你的邮箱未验证，请使用验证码登录");
+        }
       }
     }
 

@@ -84,8 +84,33 @@ export const getMergedTenant = async (spaceId?)=>{
 
 export const canRegister = async (spaceId, action)=>{
     const tenant: any = await getMergedTenant(spaceId);
-    if(action === 'emailSignupAccount' && tenant.disable_email_register){
+    if(action === 'emailSignupAccount' && (tenant.enable_bind_mobile === true || tenant.enable_bind_email != true)){
       return false
+    }else if(action === 'mobileSignupAccount' && tenant.enable_bind_mobile != true){
+      return false
+    }else if(action === 'withPassword'){
+      return tenant.enable_register && !tenant.enable_bind_mobile && !tenant.enable_bind_email
     }
     return tenant.enable_register;
+}
+
+export const canPasswordLogin = async ()=>{
+  const tenant: any = await getMergedTenant();
+  return tenant.enable_password_login;
+}
+
+export const canMobilePasswordLogin = async (user)=>{
+  const tenant: any = await getMergedTenant();
+  if(tenant.enable_bind_mobile){
+    return user.mobile_verified
+  }
+  return tenant.enable_password_login;
+}
+
+export const canEmailPasswordLogin = async (user)=>{
+  const tenant: any = await getMergedTenant();
+  if(tenant.enable_bind_email){
+    return user.email_verified
+  }
+  return tenant.enable_password_login;
 }
