@@ -115,23 +115,33 @@ export const canEmailPasswordLogin = async (user)=>{
   return tenant.enable_password_login;
 }
 
-export const canSendEmail = () => {
+function isEmpty(str){
+  if(!str){
+    return true;
+  }
+
+  if(str === 'undefined'){
+    return true;
+  }
+
+  if(_.isString(str) && str.startsWith("${")){
+    return true;
+  }
+
+  return false;
+}
+
+export const canSendEmail = ()=>{
   const config = getSteedosConfig().email || {};
   let canSend = true;
   if (!config) {
     canSend = false;
   }
-  if (!config) {
-    console.log("Please set email configs in steedos-config.yml")
+  if (isEmpty(config.from)) {
     canSend = false;
   }
-  if (!config.from) {
-    console.log("Please set email configs in steedos-config.yml")
+  if (isEmpty(config.url) && (isEmpty(config.host) || isEmpty(config.port) || isEmpty(config.username) || isEmpty(config.password))) {
     canSend = false;
   }
-  if (!config.url && (!config.host || !config.port || !config.username || !config.password)) {
-    console.log("Please set email configs in steedos-config.yml")
-    canSend = false;
-  }
-  return canSend
+  return canSend;
 }
