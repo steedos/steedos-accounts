@@ -61,7 +61,7 @@ const SignupCode = ({ match, settings, history, location, tenant }: any) => {
             }
 
             if (!tenant.enable_bind_mobile && email.trim().indexOf("@") == 0) {
-                throw new Error("无效的邮箱地址");
+                throw new Error("请输入有效的邮箱地址");
             }
 
             let action = 'emailSignupAccount';
@@ -70,11 +70,11 @@ const SignupCode = ({ match, settings, history, location, tenant }: any) => {
             }
 
             if(tenant.enable_bind_mobile && action === 'emailSignupAccount'){
-                throw new Error("无效的手机号");
+                throw new Error("请输入有效的手机号");
             }
 
             if(!tenant.enable_bind_mobile && action === 'mobileSignupAccount'){
-                throw new Error("无效的邮箱地址");
+                throw new Error("请输入有效的邮箱地址");
             }
 
             await signUpEvent.emit('inputNext', tenant, history, location, spaceId, email, action);
