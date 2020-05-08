@@ -90,7 +90,7 @@ const Signup = ({ match, history, location, actions, tenant, requestLoading, req
         },
         password
       }
-      await Login(data, history, tenant, location)
+      await Login(data, history, tenant, location, 'passwordSignupAccount')
     } catch (err) {
       requestUnLoading();
       setError(err.message);
