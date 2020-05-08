@@ -36,6 +36,8 @@ const LoginPassword = ({ history, settings, tenant, location, title, requestLoad
   const [password, setPassword] = useState('');
   const [code, setCode] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const searchParams = new URLSearchParams(location.search);
+  let spaceId = searchParams.get("X-Space-Id");
   accountsEventOnError((err: any)=>{
     setError(err.message);
 })
@@ -113,7 +115,7 @@ const LoginPassword = ({ history, settings, tenant, location, title, requestLoad
             defaultMessage='Next'
         />
       </Button>
-      {tenant.enable_register &&
+      {!spaceId && tenant.enable_register &&
       <Button onClick={goSignup}>
         <FormattedMessage
             id='accounts.signup'

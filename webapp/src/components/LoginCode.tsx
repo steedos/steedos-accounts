@@ -115,7 +115,7 @@ const LoginCode = ({match, settings, history, location, tenant }: any) => {
             defaultMessage='下一步'
           />
         </Button>
-        {tenant.enable_register && tenant.enable_password_login === false &&
+        {!spaceId && tenant.enable_register && tenant.enable_password_login === false &&
         <Button onClick={goSignup}>
           <FormattedMessage
               id='accounts.signup'
