@@ -13,8 +13,13 @@ export const getSettings = async ()=>{
         enable_register: true,
         enable_forget_password: true
       }
+
+      if (config.tenant) {
+          _.assignIn(tenant, config.tenant)
+      }
+      
       if (config.tenant && config.tenant._id) {
-        let spaceDoc = await db.findOne("spaces", config.tenant._id, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register", "enable_forget_password", "enable_create_tenant"]})
+        let spaceDoc = await db.findOne("spaces", config.tenant._id, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register"]})
     
         if (config.webservices && config.webservices.steedos) {
           if (!config.webservices.steedos.endsWith("/"))
@@ -30,8 +35,6 @@ export const getSettings = async ()=>{
             tenant.background_url = config.webservices.steedos + "api/files/avatars/" + spaceDoc.background
           }
         }
-      } else if (config.tenant) {
-          _.assignIn(tenant, config.tenant)
       }
 
       return {
@@ -46,7 +49,7 @@ export const getTenant = async (spaceId)=>{
         return {};
     }
     
-    const spaceDoc = await db.findOne("spaces", spaceId, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register", "enable_forget_password", "enable_create_tenant"]})
+    const spaceDoc = await db.findOne("spaces", spaceId, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register"]})
 
     if(!spaceDoc){
       return {}
@@ -69,7 +72,7 @@ export const getTenant = async (spaceId)=>{
 }
 
 export const spaceExists = async(spaceId)=>{
-  const spaceDoc = await db.findOne("spaces", spaceId, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register", "enable_forget_password", "enable_create_tenant"]})
+  const spaceDoc = await db.findOne("spaces", spaceId, {fields: ["name", "avatar", "avatar_dark", "background", "enable_register"]})
   if(spaceDoc){
     return true;
   }
