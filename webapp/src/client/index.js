@@ -3,6 +3,7 @@ import { accountsClient, accountsRest } from '../accounts';
 import { localizeMessage } from '../utils/utils';
 import store from '../stores/redux_store';
 import { requests } from '../actions/requests'
+// import { getTenant } from '../selectors'
 const Client4 = new ClientClass4();
 
 const getCookie = (name) => {
@@ -108,6 +109,17 @@ const goInSystem = (history, location, accessToken, root_url, canGoHome)=>{
 
 const ApplyCode = async (data) =>{
     try {
+      // const state = store.getState();
+      // const tenant = getTenant(state);
+
+      // if(data.action.startsWith("mobile") && tenant.already_sms_service != true){
+      //   throw new Error("短信服务未配置，<mobile_help>点击查看帮助</mobile_help>");
+      // }
+
+      // if(data.action.startsWith("email") && tenant.already_mail_service != true){
+      //   throw new Error("邮件服务未配置，<email_help>点击查看帮助</email_help>");
+      // }
+      
       return await accountsRest.fetch(`code/apply`, {
           method: 'POST',
           body: JSON.stringify(data),

@@ -136,11 +136,23 @@ export const canSendEmail = ()=>{
   let canSend = true;
   if (!config) {
     canSend = false;
-  }
-  if (isEmpty(config.from)) {
+  }else if (isEmpty(config.from)) {
+    canSend = false;
+  }else if (isEmpty(config.url) && (isEmpty(config.host) || isEmpty(config.port) || isEmpty(config.username) || isEmpty(config.password))) {
     canSend = false;
   }
-  if (isEmpty(config.url) && (isEmpty(config.host) || isEmpty(config.port) || isEmpty(config.username) || isEmpty(config.password))) {
+  return canSend;
+}
+
+//TODO twilio
+export const canSendSMS = ()=>{
+  const config = (getSteedosConfig().sms || {}).qcloud || {};
+  let canSend = true;
+  if (!config) {
+    canSend = false;
+  }else if (!config.smsqueue_interval) {
+    canSend = false;
+  }else if (isEmpty(config.sdkappid) || isEmpty(config.appkey) || isEmpty(config.signname)) {
     canSend = false;
   }
   return canSend;

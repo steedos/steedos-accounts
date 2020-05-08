@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { AccountsServer } from '@accounts/server';
 import { getSteedosConfig } from '@steedos/objectql'
 import { db } from '../../../db';
-import { canSendEmail } from '../../../core';
+import { canSendEmail, canSendSMS } from '../../../core';
 
 const config = getSteedosConfig();
 
@@ -41,11 +41,13 @@ export const getSettings = (accountsServer: AccountsServer) => async (
   }
 
   let already_mail_service = canSendEmail();
+  let already_sms_service = canSendSMS();
 
   res.json({
     tenant: tenant,
     password: config.password?config.password:{},
     root_url: process.env.ROOT_URL,
-    already_mail_service: already_mail_service
+    already_mail_service: already_mail_service,
+    already_sms_service: already_sms_service
   })
 }
