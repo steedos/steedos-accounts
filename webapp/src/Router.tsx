@@ -82,6 +82,11 @@ const Router = ({tenant}:any) => {
     loginComponent = LoginCode;
   }
 
+  let signupComponent = Signup;
+  if(tenant.enable_bind_mobile || tenant.enable_bind_email){
+    signupComponent = SignupCode;
+  }
+
   return (
     <HashRouter basename="">
       <ThemeProvider theme={theme}>
@@ -96,7 +101,7 @@ const Router = ({tenant}:any) => {
                 <Logo></Logo>
                 <Route path="/" component={Title}/>
                 <Route exact path="/" component={Home}/>
-                <Route path="/signup" component={SignupCode} />
+                <Route path="/signup" component={signupComponent} />
                 <Route path="/signup-password" component={Signup} />
 
                 <Route path="/login" component={loginComponent} />
