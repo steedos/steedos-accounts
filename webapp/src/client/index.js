@@ -69,7 +69,7 @@ const LoginAfter = async (history, tenant, result, location, action)=>{
       return LoginAfterHistoryPush(history, '/update-password' + location.search, {error: localizeMessage('accounts.passwordExpired')});
     }
 
-    if (tenant.enable_create_tenant && user.spaces.length == 0)
+    if (user.spaces.length == 0)
     {
       return LoginAfterHistoryPush(history, '/create-tenant' + location.search);
     }
