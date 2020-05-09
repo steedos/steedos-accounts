@@ -153,8 +153,6 @@ export const canSendSMS = ()=>{
   let canSend = true;
   if (!config) {
     canSend = false;
-  }else if (!config.smsqueue_interval) {
-    canSend = false;
   }else if (isEmpty(config.sdkappid) || isEmpty(config.appkey) || isEmpty(config.signname)) {
     canSend = false;
   }
