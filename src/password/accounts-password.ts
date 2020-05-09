@@ -156,13 +156,13 @@ export default class AccountsPassword implements AuthenticationService {
   }
 
   public async authenticate(params: any): Promise<User> {
-    const { user, password, code, token, token_code } = params;
+    const { user, password, code, token, token_code, locale } = params;
 
     if(token){
       if (!user) {
         throw new Error(this.options.errors.unrecognizedOptionsForLogin);
       }
-      return await this.codeAuthenticator(user, token, token_code);
+      return await this.codeAuthenticator(user, token, token_code, locale);
     }
 
     if (!user || !password) {
@@ -549,11 +549,12 @@ export default class AccountsPassword implements AuthenticationService {
     // If user does not provide the validate function only allow some fields
     user = this.options.validateNewUser
       ? await this.options.validateNewUser(user)
-      : pick<PasswordCreateUserType, 'username' | 'email' | 'password' | 'mobile'>(user, [
+      : pick<PasswordCreateUserType, 'username' | 'email' | 'password' | 'mobile' | 'locale'>(user, [
           'username',
           'email',
           'password',
-          'mobile'
+          'mobile',
+          'locale'
         ]);
 
     try {
@@ -636,7 +637,7 @@ export default class AccountsPassword implements AuthenticationService {
   }
 
   private async codeAuthenticator(
-    user, token, token_code
+    user, token, token_code, locale
   ): Promise<User> {
     const { username, email, id } = isString(user)
       ? this.toUsernameAndEmail({ user })
@@ -664,7 +665,7 @@ export default class AccountsPassword implements AuthenticationService {
 
     if(!foundUser && verifyRecord.action.endsWith('SignupAccount')){
       hasVerified = true;
-      const result = await verifyCode(null, token, token_code, {server: this});
+      const result = await verifyCode(null, token, token_code, {locale:locale, server: this});
       if(result.verified){
         foundUser = await this.db.findUserById(result.userId);
       }
@@ -678,7 +679,7 @@ export default class AccountsPassword implements AuthenticationService {
       );
     }
     if(!hasVerified){
-      const result = await verifyCode(foundUser.id, token, token_code, {createUser: this.createUser})
+      const result = await verifyCode(foundUser.id, token, token_code, {locale:locale, createUser: this.createUser})
       if (!result.verified) {
         throw new Error(
           this.server.options.ambiguousErrorMessages

@@ -15,11 +15,23 @@ const getCookie = (name) => {
     }
     return ''
   }
-
+const getBrowserLocale = function () {
+  var l, locale;
+  var navigator = window.navigator;
+  l = navigator.userLanguage || navigator.language || 'en';
+  if (l.indexOf("zh") >= 0) {
+    locale = "zh-cn";
+  } else {
+    locale = "en-us";
+  }
+  return locale;
+};
 const Login = async (data, history, tenant, location, action)=>{
     if(tenant._id){
       data.spaceId = tenant._id
     }
+
+    data.locale = getBrowserLocale();
 
     let result = await accountsRest.authFetch( 'password/authenticate', {
         method: 'POST',
