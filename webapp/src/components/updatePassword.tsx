@@ -65,8 +65,9 @@ const UpdatePassword = ({ history, location }: RouteComponentProps<{}>) => {
       await accountsPassword.changePassword(oldPassword, newPassword);
       await accountsClient.logout();
       history.push({
-        pathname: `/login`,
-        search: location.search
+          pathname: `/login`,
+          search: location.search,
+          state: {message: {data: "请使用新密码重新登录", variant: 'info'}}
       })
     } catch (err) {
       if(err.message === 'accounts.invalid_credentials'){
