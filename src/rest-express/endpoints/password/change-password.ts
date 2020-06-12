@@ -32,9 +32,13 @@ export const changePassword = (accountsServer: AccountsServer) => async (
 
     await password.changePassword((req as any).userId, oldPassword, hashPassword(newPassword, password.options.passwordHashAlgorithm));
     password.db.collection.updateOne({_id: (req as any).userId}, {$set: {password_expired: false}})
-    Creator.getCollection('space_users').update({user: (req as any).userId}, {$set: {password_expired: false}}, {
-      multi: true
-  })
+    try {
+      Creator.getCollection('space_users').update({user: (req as any).userId}, {$set: {password_expired: false}}, {
+        multi: true
+      })
+    } catch (error) {
+      console.log('error', error);
+    }
     res.json(null);
   } catch (err) {
     sendError(res, err);
