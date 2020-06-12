@@ -78,13 +78,6 @@ const UpdatePassword = ({ history, location }: RouteComponentProps<{}>) => {
 
   return (
     <form onSubmit={onSubmit} className={classes.formContainer} autoCapitalize="none">
-      <h4 className={classes.title}>
-        <FormattedMessage
-            id='accounts.update_password'
-            defaultMessage='Sign Up'
-        />
-      </h4>
-      
       <FormControl margin="normal">
       <InputLabel htmlFor="oldPassword">          
           <FormattedMessage
