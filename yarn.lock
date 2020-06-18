@@ -758,20 +758,20 @@
   dependencies:
     tslib "^1.10.0"
 
-"@steedos/app-contracts@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/app-contracts/download/@steedos/app-contracts-1.20.11.tgz#f6ccfd3e21e95381d1f6b7c106daf7a076afee23"
-  integrity sha1-9sz9PiHpU4HR9rfBBtr3oHav7iM=
+"@steedos/app-contracts@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/app-contracts/download/@steedos/app-contracts-1.20.13.tgz#ba7e61875ae302f1da404c0f8c49be1c22232cf7"
+  integrity sha1-un5hh1rjAvHaQEwPjEm+HCIjLPc=
   dependencies:
     dotenv "^8.2.0"
     dotenv-flow "^3.1.0"
 
-"@steedos/auth@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/auth/download/@steedos/auth-1.20.11.tgz#03e3afcfc65402bb1951325d273015dae46df1bd"
-  integrity sha1-A+Ovz8ZUArsZUTJdJzAV2uRt8b0=
+"@steedos/auth@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/auth/download/@steedos/auth-1.20.13.tgz#9421795b2efef769c89573dbf21e9cb4c6b70f84"
+  integrity sha1-lCF5Wy7+92nIlXPb8h6ctMa3D4Q=
   dependencies:
-    "@steedos/objectql" "^1.20.11"
+    "@steedos/objectql" "^1.20.13"
     bcrypt "^3.0.6"
     cookies "^0.7.3"
     express "^4.16.4"
@@ -780,18 +780,18 @@
     sha256 "^0.2.0"
     underscore "^1.9.1"
 
-"@steedos/core@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/core/download/@steedos/core-1.20.11.tgz#d48d098cc0731c0e3c54413077fe2cf36983f082"
-  integrity sha1-1I0JjMBzHA48VEEwd/4s82mD8II=
+"@steedos/core@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/core/download/@steedos/core-1.20.13.tgz#216ec610a37730c6ac1099f54d665757b4c05c34"
+  integrity sha1-IW7GEKN3MMasEJn1TWZXV7TAXDQ=
   dependencies:
     "@salesforce/dev-config" "^1.4.4"
     "@salesforce/kit" "^1.0.4"
     "@salesforce/ts-types" "^1.1.1"
-    "@steedos/auth" "^1.20.11"
-    "@steedos/migrate" "^1.20.11"
-    "@steedos/objectql" "^1.20.11"
-    "@steedos/standard-objects" "^1.20.11"
+    "@steedos/auth" "^1.20.13"
+    "@steedos/migrate" "^1.20.13"
+    "@steedos/objectql" "^1.20.13"
+    "@steedos/standard-objects" "^1.20.13"
     "@types/express" "^4.16.1"
     "@types/mongodb" "^3.1.22"
     "@types/node" "^11.10.4"
@@ -818,27 +818,27 @@
     uglify-js "^3.6.0"
     underscore "1.5.2"
 
-"@steedos/filters@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/filters/download/@steedos/filters-1.20.11.tgz#9a65a11802067a9d20a65417e8c2c0451486610d"
-  integrity sha1-mmWhGAIGep0gplQX6MLARRSGYQ0=
+"@steedos/filters@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/filters/download/@steedos/filters-1.20.13.tgz#befa0cedba472a05dd17bf83b9ca0f0accc8030b"
+  integrity sha1-vvoM7bpHKgXdF7+DucoPCszIAws=
   dependencies:
     moment "^2.24.0"
     underscore "^1.9.1"
 
-"@steedos/i18n@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/i18n/download/@steedos/i18n-1.20.11.tgz#85e785217ce4e9cf85956e91671f71ca402639e9"
-  integrity sha1-heeFIXzk6c+FlW6RZx9xykAmOek=
+"@steedos/i18n@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/i18n/download/@steedos/i18n-1.20.13.tgz#72bca80c90f09e0ffa734cc0217758b0e9d47963"
+  integrity sha1-cryoDJDwng/6c0zAIXdYsOnUeWM=
   dependencies:
     i18next "^19.3.4"
     i18next-sprintf-postprocessor "^0.2.2"
     i18next-xhr-backend "^3.2.2"
 
-"@steedos/meteor-bundle-dependencies@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/meteor-bundle-dependencies/download/@steedos/meteor-bundle-dependencies-1.20.11.tgz#f3d1947a2af985ce5d6f26d0d2b3851d1983ec43"
-  integrity sha1-89GUeir5hc5dbybQ0rOFHRmD7EM=
+"@steedos/meteor-bundle-dependencies@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/meteor-bundle-dependencies/download/@steedos/meteor-bundle-dependencies-1.20.13.tgz#f3bd6f132955aecac925f2cf080a2c84556361c8"
+  integrity sha1-871vEylVrsrJJfLPCAoshFVjYcg=
   dependencies:
     apn "1.6.2"
     arson "0.2.6"
@@ -885,10 +885,10 @@
     uuid "3.3.2"
     whatwg-fetch "2.0.4"
 
-"@steedos/meteor-bundle-runner@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/meteor-bundle-runner/download/@steedos/meteor-bundle-runner-1.20.11.tgz#95e4513eb66ea2a2f487188ec0b62d0e06bbed24"
-  integrity sha1-leRRPrZuoqL0hxiOwLYtDga77SQ=
+"@steedos/meteor-bundle-runner@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/meteor-bundle-runner/download/@steedos/meteor-bundle-runner-1.20.13.tgz#bcfc83766b6a83488af85d4973ea16c66722f9fb"
+  integrity sha1-vPyDdmtqg0iK+F1Jc+oWxmci+fs=
   dependencies:
     fibers "4.0.3"
     meteor-promise "0.8.5"
@@ -898,25 +898,25 @@
     source-map-support "^0.5.10"
     underscore "1.5.2"
 
-"@steedos/migrate@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/migrate/download/@steedos/migrate-1.20.11.tgz#21b4eca2077ce8fcb3fc76218bff0a31b86dab92"
-  integrity sha1-IbTsogd86Pyz/HYhi/8KMbhtq5I=
+"@steedos/migrate@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/migrate/download/@steedos/migrate-1.20.13.tgz#995a95aa0c91d69ba5f1f577e8201505006d6a75"
+  integrity sha1-mVqVqgyR1pul8fV36CAVBQBtanU=
   dependencies:
     migrate "^1.6.2"
 
-"@steedos/objectql@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/objectql/download/@steedos/objectql-1.20.11.tgz#3cfd027a7b5bd15515595897a339a44baba28423"
-  integrity sha1-PP0Centb0VUVWViXozmkS6uihCM=
+"@steedos/objectql@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/objectql/download/@steedos/objectql-1.20.13.tgz#6bd59f6a686c4405f1798aebe6e58f418954b030"
+  integrity sha1-a9WfamhsRAXxeYrr5uWPQYlUsDA=
   dependencies:
     "@salesforce/dev-config" "^1.4.4"
     "@salesforce/kit" "^1.0.4"
     "@salesforce/ts-types" "^1.1.1"
-    "@steedos/filters" "^1.20.11"
+    "@steedos/filters" "^1.20.13"
     "@steedos/odata-v4-typeorm" "^0.1.0"
-    "@steedos/schemas" "^1.20.11"
-    "@steedos/standard-objects" "^1.20.11"
+    "@steedos/schemas" "^1.20.13"
+    "@steedos/standard-objects" "^1.20.13"
     "@types/express" "^4.16.1"
     "@types/mongodb" "^3.1.22"
     "@types/node" "^11.10.4"
@@ -951,15 +951,15 @@
     odata-v4-parser "0.1.13"
     odata-v4-sql "^0.1.2"
 
-"@steedos/schemas@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/schemas/download/@steedos/schemas-1.20.11.tgz#281e73b862f134f15d09567c4da5b1925112c6b2"
-  integrity sha1-KB5zuGLxNPFdCVZ8TaWxklESxrI=
+"@steedos/schemas@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/schemas/download/@steedos/schemas-1.20.13.tgz#b30884d6fb9e62a7f2f70da4588136ca0688c940"
+  integrity sha1-swiE1vueYqfy9w2kWIE2ygaIyUA=
 
-"@steedos/standard-objects@^1.20.11":
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/@steedos/standard-objects/download/@steedos/standard-objects-1.20.11.tgz#bba18ba2f794b7de539030689d34163d647387af"
-  integrity sha1-u6GLoveUt95TkDBonTQWPWRzh68=
+"@steedos/standard-objects@^1.20.13":
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/@steedos/standard-objects/download/@steedos/standard-objects-1.20.13.tgz#b4213209c79f5f5c698de999375e17cadc73f54d"
+  integrity sha1-tCEyCcefX1xpjemZN14Xytxz9U0=
 
 "@steedos/steedos-plugin-workflow@^2.0.4":
   version "2.0.5"
@@ -7381,21 +7381,21 @@ statuses@~1.4.0:
   resolved "https://registry.npm.taobao.org/statuses/download/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   integrity sha1-u3PURtonlhBu/MG2AaJT1sRr0Ic=
 
-steedos-server@^1.20.11:
-  version "1.20.11"
-  resolved "https://registry.npm.taobao.org/steedos-server/download/steedos-server-1.20.11.tgz#07314aaabff3aad70711e9dd099757f3bf4a5d24"
-  integrity sha1-BzFKqr/zqtcHEendCZdX879KXSQ=
+steedos-server@^1.20.13:
+  version "1.20.13"
+  resolved "https://registry.npm.taobao.org/steedos-server/download/steedos-server-1.20.13.tgz#a765102e02e960de35dcc8c5d6a4a50913aa5533"
+  integrity sha1-p2UQLgLpYN413MjF1qSlCROqVTM=
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@salesforce-ux/design-system" "^2.11.0"
-    "@steedos/auth" "^1.20.11"
-    "@steedos/core" "^1.20.11"
-    "@steedos/filters" "^1.20.11"
-    "@steedos/i18n" "^1.20.11"
-    "@steedos/meteor-bundle-dependencies" "^1.20.11"
-    "@steedos/meteor-bundle-runner" "^1.20.11"
-    "@steedos/objectql" "^1.20.11"
-    "@steedos/standard-objects" "^1.20.11"
+    "@steedos/auth" "^1.20.13"
+    "@steedos/core" "^1.20.13"
+    "@steedos/filters" "^1.20.13"
+    "@steedos/i18n" "^1.20.13"
+    "@steedos/meteor-bundle-dependencies" "^1.20.13"
+    "@steedos/meteor-bundle-runner" "^1.20.13"
+    "@steedos/objectql" "^1.20.13"
+    "@steedos/standard-objects" "^1.20.13"
     basic-auth "^2.0.1"
     bcrypt "^3.0.4"
     body-parser "^1.18.3"
