@@ -14,6 +14,7 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && cross-env NODE_ENV=development nodemon -w src -x ts-node steedos-server.ts",
+    "cstart": "yarn build && yarn start",
     "server": "cross-env NODE_ENV=development nodemon -w src -x ts-node server.ts",
     "build": "tsc && yarn buildClient",
     "buildClient": "cd webapp && yarn && yarn build && cd ..",

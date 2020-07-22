@@ -17,7 +17,8 @@ const pathMap:any = {
     "/set-name": "填写姓名",
     "/choose-tenant": "选择企业",
     "/verify-mobile": "绑定手机号",
-    "/verify": "验证"
+    "/verify": "验证",
+    "/generate-license": "申请 License"
   }
   const useStyles = makeStyles({
     container: {
