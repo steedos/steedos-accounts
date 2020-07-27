@@ -67,7 +67,7 @@ const LoginCode = ({match, settings, history, location, tenant }: any) => {
             })
           }
       }else{
-        throw new Error("未找到您的账户，请先注册");
+        throw new Error("未找到您的账户，请先创建账户");
       }
     } catch (err) {
       setError(err.message);

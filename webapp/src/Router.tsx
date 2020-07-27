@@ -118,8 +118,8 @@ const Router = ({tenant}:any) => {
                 <Route path="/login-code" component={LoginCode} />
                 <Route path="/set-name" component={SetName} />
                 <Route path="/verify-mobile/:token" component={VerifyMobile} />
-                <Route path="/generate-license" component={GenerateLicense} />
-                <Route path="/result-license" component={LicenseResult} />
+                {/* <Route path="/generate-license" component={GenerateLicense} />
+                <Route path="/result-license" component={LicenseResult} /> */}
                 <Route path="/two-factor" component={TwoFactor} />
               </Paper>
             </Grid>
