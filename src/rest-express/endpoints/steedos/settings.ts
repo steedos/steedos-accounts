@@ -34,7 +34,7 @@ export const getSettings = (accountsServer: AccountsServer) => async (
         _.assignIn(tenant, spaceDoc);
 
       if (spaceDoc.account_logo) {
-        spaceDoc.logo_url = config.webservices.steedos + "api/files/avatars/" + spaceDoc.account_logo
+        tenant.logo_url = config.webservices.steedos + "api/files/avatars/" + spaceDoc.account_logo
       } else if (spaceDoc.avatar_dark) {
         tenant.logo_url = config.webservices.steedos + "api/files/avatars/" + spaceDoc.avatar_dark
       } else if (spaceDoc.avatar) {
