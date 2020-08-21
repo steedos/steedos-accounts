@@ -1,3 +1,5 @@
+# 本项目已合并到 [华炎魔方](https://github.com/steedos/steedos-platform/) 
+
 # Steedos Accounts
 
 Fullstack authentication and accounts-management for steedos.
