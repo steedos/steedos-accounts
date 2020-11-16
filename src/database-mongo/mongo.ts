@@ -282,6 +282,9 @@ export class Mongo implements DatabaseInterface {
           'services.password.bcrypt': newPassword,
           [this.options.timestamps.updatedAt]: this.options.dateProvider(),
         },
+        $push: {
+          'services.password_history': newPassword
+        },
         $unset: {
           'services.password.reset': '',
         },
@@ -483,5 +486,9 @@ export class Mongo implements DatabaseInterface {
 
   public async setResetPassword(userId: string, email: string, newPassword: string): Promise<void> {
     await this.setPassword(userId, newPassword);
+  }
+
+  public async updateUser(userId, options){
+    return this.collection.updateOne({_id: userId}, options);
   }
 }
