@@ -401,19 +401,20 @@ export default class AccountsPassword implements AuthenticationService {
     }
 
     const user: any = await this.passwordAuthenticator({ id: userId }, oldPassword);
-    
-    const passwordHistory = user.services.password_history || []
+    const saas = getSteedosConfig().tenant.saas;
+    if(!saas){
+      const passwordHistory = user.services.password_history || []
 
-    const userProfile = await this.getUserProfile(userId);
-    
-    const validPasswordHistory = _.last(passwordHistory, userProfile.password_history);
-    for (const item of validPasswordHistory) {
-      var verify = await verifyPassword(newPassword, item)
-      if(verify){
-        throw new Error('最近 ' + userProfile.password_history + ' 次密码不能相同');
+      const userProfile = await this.getUserProfile(userId);
+      
+      const validPasswordHistory = _.last(passwordHistory, userProfile.password_history);
+      for (const item of validPasswordHistory) {
+        var verify = await verifyPassword(newPassword, item)
+        if(verify){
+          throw new Error('最近 ' + userProfile.password_history + ' 次密码不能相同');
+        }
       }
     }
-
     const password = await bcryptPassword(newPassword);
     await this.db.setPassword(userId, password);
 
@@ -659,15 +660,17 @@ export default class AccountsPassword implements AuthenticationService {
     if (!hash) {
       throw new Error(this.options.errors.noPasswordSet);
     }
-
-    const locked = foundUser.lockout;
-    const login_failed_lockout_time = foundUser.login_failed_lockout_time;
-    if(locked){
-      if(!login_failed_lockout_time){
-        throw new Error('账户已锁定，请联系管理员');
-      }else{
-        if(moment(login_failed_lockout_time).isAfter(new Date())){
+    const saas = getSteedosConfig().tenant.saas;
+    if(!saas){
+      const locked = foundUser.lockout;
+      const login_failed_lockout_time = foundUser.login_failed_lockout_time;
+      if(locked){
+        if(!login_failed_lockout_time){
           throw new Error('账户已锁定，请联系管理员');
+        }else{
+          if(moment(login_failed_lockout_time).isAfter(new Date())){
+            throw new Error('账户已锁定，请联系管理员');
+          }
         }
       }
     }
@@ -677,23 +680,23 @@ export default class AccountsPassword implements AuthenticationService {
     const isPasswordValid = await verifyPassword(pass, hash);
 
     if (!isPasswordValid) {
+      if(!saas){
+        const userProfile = await this.getUserProfile(foundUser.id);
 
-      const userProfile = await this.getUserProfile(foundUser.id);
+        await this.db.updateUser(foundUser.id, {$inc: {login_failed_number: 1}});
 
-      await this.db.updateUser(foundUser.id, {$inc: {login_failed_number: 1}});
-
-      const user: any = await this.db.findUserById(foundUser.id);
-      if(user.login_failed_number >= userProfile.max_login_attempts){
-        let lockout_interval = userProfile.lockout_interval;
-        let login_failed_lockout_time = null;
-        if(lockout_interval === 0){
-          login_failed_lockout_time = null;
-        }else{
-          login_failed_lockout_time = new Date(moment().add(userProfile.lockout_interval, 'm'))
+        const user: any = await this.db.findUserById(foundUser.id);
+        if(user.login_failed_number >= userProfile.max_login_attempts){
+          let lockout_interval = userProfile.lockout_interval;
+          let login_failed_lockout_time = null;
+          if(lockout_interval === 0){
+            login_failed_lockout_time = null;
+          }else{
+            login_failed_lockout_time = new Date(moment().add(userProfile.lockout_interval, 'm'))
+          }
+          await this.db.updateUser(foundUser.id, {$set: {lockout: true, login_failed_lockout_time: login_failed_lockout_time}});
         }
-        await this.db.updateUser(foundUser.id, {$set: {lockout: true, login_failed_lockout_time: login_failed_lockout_time}});
       }
-
       throw new Error(
         this.server.options.ambiguousErrorMessages
           ? this.options.errors.invalidCredentials

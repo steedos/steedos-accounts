@@ -1,7 +1,7 @@
 {
   "name": "@steedos/accounts",
   "private": false,
-  "version": "1.22.0-alpha.1",
+  "version": "1.21.1",
   "main": "lib/index.js",
   "files": [
     "/package.json",
@@ -23,7 +23,7 @@
     "os": "npm run osy && cp -r ../object-server/packages/* node_modules/@steedos/ && cp -r ../object-server/apps/contracts/src/* node_modules/@steedos/app-contracts/src/",
     "oss": "cp -r ../object-server/packages/standard-objects/* node_modules/@steedos/standard-objects/ && yarn start",
     "prepare": "yarn build",
-    "pubNext": "npm publish --tag next --registry https://registry.npmjs.org"
+    "pub": "npm publish --tag 1.21 --registry https://registry.npmjs.org"
   },
   "dependencies": {
     "@accounts/mongo": "^0.19.0",
